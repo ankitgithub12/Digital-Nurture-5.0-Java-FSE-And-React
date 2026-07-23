@@ -1,0 +1,130 @@
+.App {
+  text-align: center;
+  overflow: hidden;
+}
+
+.App-header {
+  background: radial-gradient(circle at top left, #121824 0%, #080b11 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative;
+}
+
+/* Elegant ambient glowing backdrops */
+.App-header::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
+  top: 15%;
+  left: 20%;
+  z-index: 1;
+  pointer-events: none;
+  animation: float-glow 8s ease-in-out infinite alternate;
+}
+
+.App-header::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.12) 0%, rgba(236, 72, 153, 0) 70%);
+  bottom: 10%;
+  right: 15%;
+  z-index: 1;
+  pointer-events: none;
+  animation: float-glow-reverse 10s ease-in-out infinite alternate;
+}
+
+/* Glassmorphism Card Container */
+.welcome-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 24px;
+  padding: 3rem 4rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  max-width: 80%;
+  animation: fade-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Gradient and Animated heading */
+h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 30%, #ec4899 70%, #f472b6 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shine 6s linear infinite;
+  line-height: 1.2;
+}
+
+/* Small subtext to make it look premium and complete */
+.subtext {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #94a3b8;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+@keyframes gradient-shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float-glow {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(30px, -20px) scale(1.1);
+  }
+}
+
+@keyframes float-glow-reverse {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-40px, 30px) scale(1.15);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  .welcome-card {
+    padding: 2rem;
+  }
+}
