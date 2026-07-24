@@ -1,0 +1,219 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #172033;
+  background:
+    radial-gradient(circle at top left, rgba(245, 166, 35, 0.2), transparent 28%),
+    radial-gradient(circle at top right, rgba(45, 108, 223, 0.18), transparent 24%),
+    linear-gradient(180deg, #f7f4ef 0%, #eef3fb 100%);
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.hero,
+.panel,
+.card {
+  border: 1px solid rgba(23, 32, 51, 0.12);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 24px 60px rgba(16, 24, 40, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.hero {
+  padding: 32px;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: #6a4b1a;
+}
+
+.hero h1,
+.panel h2,
+.card h3 {
+  margin: 0 0 12px;
+  line-height: 1.1;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 4vw, 4.2rem);
+}
+
+.hero p,
+.placeholder,
+.subcard p,
+.card dd,
+.list-item,
+.bullets li {
+  color: #3f4a61;
+}
+
+.panel {
+  padding: 24px 28px;
+  margin-bottom: 20px;
+}
+
+.button-row,
+.toggle-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.toggle-row {
+  margin-top: 18px;
+}
+
+.button {
+  border: 1px solid rgba(23, 32, 51, 0.18);
+  background: #fff;
+  color: #172033;
+  border-radius: 999px;
+  padding: 10px 16px;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button.active {
+  background: #172033;
+  color: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.highlighted {
+  outline: 2px solid rgba(45, 108, 223, 0.18);
+  border-radius: 24px;
+}
+
+.card {
+  padding: 20px;
+  height: 100%;
+}
+
+.card h3,
+.subcard h4 {
+  color: #172033;
+}
+
+.card dl {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.card dl div {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(23, 32, 51, 0.08);
+}
+
+.card dt {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+}
+
+.card dd {
+  margin: 4px 0 0;
+  font-weight: 600;
+}
+
+.stack {
+  display: grid;
+  gap: 12px;
+}
+
+.subcard {
+  padding: 16px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(245, 246, 250, 0.95), rgba(239, 244, 255, 0.95));
+}
+
+.subcard.highlight {
+  border: 1px solid rgba(45, 108, 223, 0.18);
+}
+
+.meta {
+  margin-top: 4px;
+  font-size: 0.92rem;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.list-item {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(247, 248, 252, 0.95);
+}
+
+.bullets {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    width: min(100% - 20px, 1180px);
+    padding-top: 20px;
+  }
+
+  .hero,
+  .panel {
+    padding: 20px;
+  }
+}
