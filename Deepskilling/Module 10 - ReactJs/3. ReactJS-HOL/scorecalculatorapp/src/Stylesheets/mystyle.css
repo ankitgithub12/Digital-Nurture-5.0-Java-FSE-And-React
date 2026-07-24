@@ -1,0 +1,200 @@
+/* mystyle.css - Premium Design System for Score Calculator */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --info-gradient: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  
+  --bg-slate-50: #f8fafc;
+  --bg-slate-100: #f1f5f9;
+  --text-slate-900: #0f172a;
+  --text-slate-700: #334155;
+  --text-slate-500: #64748b;
+  --border-color: #e2e8f0;
+  
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.score-card {
+  font-family: 'Outfit', sans-serif;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 35px;
+  width: 100%;
+  max-width: 480px;
+  margin: 30px auto;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.score-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 35px -5px rgba(99, 102, 241, 0.12), 0 10px 20px -8px rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+/* Background blur glow effect */
+.score-card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.card-badge-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.rating-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 6px 16px;
+  border-radius: 50px;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.rating-excellent {
+  background: var(--success-gradient);
+}
+
+.rating-good {
+  background: var(--info-gradient);
+}
+
+.rating-average {
+  background: var(--warning-gradient);
+}
+
+.rating-fail {
+  background: var(--danger-gradient);
+}
+
+.card-title {
+  color: var(--text-slate-900);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 25px;
+  letter-spacing: -0.02em;
+  border-bottom: 2px solid var(--bg-slate-100);
+  padding-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 1;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.detail-label {
+  color: var(--text-slate-500);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.detail-value {
+  color: var(--text-slate-900);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.highlight-text {
+  color: #4f46e5;
+  font-weight: 700;
+  background: rgba(99, 102, 241, 0.08);
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+.score-highlight {
+  font-size: 1.15rem;
+  color: var(--text-slate-900);
+  font-weight: 700;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 20px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.average-display-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.average-label {
+  color: var(--text-slate-500);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.average-score-bubble {
+  background: var(--primary-gradient);
+  color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.25);
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.average-score-bubble:hover {
+  transform: scale(1.08) rotate(5deg);
+}
+
+.formula-hint {
+  color: var(--text-slate-500);
+  font-size: 0.75rem;
+  font-style: italic;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
